@@ -1,4 +1,4 @@
-Ich möchte eine Tauschplattform machen bei welcher man gebrauchte Kleider gegen Coupons eintauschen kann.
-Mit den Coupons kann man dann wieder andere Kleider ertauschen. Somit braucht es ein Benutzerkonto mit Anzahl 
-Coupons und wenn man etwas tauschen will, muss geprüft werden ob ein Coupon auf dem Benutzerkonto vorhanden ist oder nicht. 
-Evt. erweiterbar mit Funktion Bilder und Beschreibung eines Kleidungstück hochzuladen. 
+# Projektidee Flask
+Die Idee für die Webapplikaton mit Flask, ist eine **Frage und Antwortseite** zu erstellen. Dabei kann man sich als Nutzer registrieren und einloggen.
+Als Nutzer hat man dabei die Auswahl zwischen Multiple Choice und oder auch Textantworten. In einem zusätzlichen Schritt sollte es evt. auch 
+möglich sein als Nutzer selbst fragen für andere Nutzer zu erstellen. 
