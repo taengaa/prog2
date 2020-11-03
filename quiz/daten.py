@@ -1,16 +1,17 @@
 import json
 
 
-def speichern(aktivitaet, dauer):
+def speichern(frage1):
     try:
-        with open("datebank.json", "r") as datenbank:
-        eintraege = json.load(datenbank)
+        with open("datenbank.json", "r") as datenbank:
+            eintraege = json.load(datenbank)
     except:
         eintraege = []
-    eintrag = {aktivitaet, dauer}
+
+    eintrag = ("Frage 1: " + frage1)
 
     eintraege.append(eintrag)
 
-    with open("datebank.json", "w") as datenbank:
-        json.dump(eintraege, datenbank)
-    return "Daten wurden gespeichert"
+    with open("datenbank.json", "w") as datenbank:
+        json.dump(eintraege, datenbank) # eintrag in datenbank
+    return "Daten gespeichert"

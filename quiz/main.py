@@ -6,19 +6,28 @@ from flask import redirect
 
 app = Flask("Psychologische Gesundheit")
 
+@app.route('/')
+def start():
+    ueberschrifts_text = "Willkomen, hier können sie den Corona Psycho Test durchführen."
+    einleitung_text = "hier können Sie Ihre Aktivitäten tracken. Was wollen Sie tun?"
+    return render_template('start.html', app_name="Quiz", ueberschrift=ueberschrifts_text, einleitung=einleitung_text)
 
-@app.route('/questionaire', methods=["GET", "POST"])
-def index():
 
-    if request.method == "POST":
-        data = request.form
-        print(data)
+@app.route('/eingabe', methods=['POST', 'GET'])
+def eingabe():
 
-    return render_template('index.html', name="Simon", app_name="Psychologischer Test")
+    if request.method == 'POST':
+        frage1 = request.form['frage1']
+        antwort = speichern(frage1)
+        return 'Gespeicherte Daten: <br>' + str(antwort)
+
+    return render_template('index.html', app_name="Tracker! - Eingabe")
 
 @app.route('/about')
 def about():
-    return render_template('about.html', app_name="about")
+    ueberschrifts_text = "Über diese Webapp"
+    einleitung_text = "Diese App wurde als Demo-App programmiert"
+    return render_template('start.html', app_name="Quiz", ueberschrift=ueberschrifts_text, einleitung=einleitung_text)
 
 
 if __name__ == "__main__":
