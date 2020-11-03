@@ -2,17 +2,46 @@
 <html lang="de">
  	<head>
     	<meta charset="utf-8">
-    	<title>Hello</title>
+    	<title>{{ app_name }}</title>
     	<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
     </head>
     <body>
 		<h1>Mental health survey</h1>
 		<h2>Hallo {{ name }}!</h2>
-	<form action="">
-		<label for="first_question">Wie fühlen sie sich von 1-10:</label>
-		<input type="text" name="first_question" value="" required>
+	<form action="/questionaire" method="POST">
+		<label for="first_question">Wie fühlen sie sich von 1-10: 1 </label>
+		<input type="radio" id="first_question" name="option1.1" value="">
+
+		<label for="first_question">2</label>
+		<input type="radio" id="first_question" name="option1.2" value="">
+
+		<label for="first_question">3</label>
+		<input type="radio" id="first_question" name="option1.3" value="">
+
+		<label for="first_question">4</label>
+		<input type="radio" id="first_question" name="option1.4" value="">
+
+		<label for="first_question">5</label>
+		<input type="radio" id="first_question" name="option1.5" value="">
+
+		<label for="first_question">6</label>
+		<input type="radio" id="first_question" name="option1.6" value="">
+
+		<label for="first_question">7</label>
+		<input type="radio" id="first_question" name="option1.7" value="">
+
+		<label for="first_question">8</label>
+		<input type="radio" id="first_question" name="option1.8" value="">
+
+		<label for="first_question">9</label>
+		<input type="radio" id="first_question" name="option1.9" value="">
+
+		<label for="first_question">10</label>
+		<input type="radio" id="first_question" name="option1.10" value="">
+
 		<br>
-		<input type="text" name="second_question" value="">
+		<label for="second_question">Sind sie glücklick von 1-10:</label>
+		<input type="radio" id="second_question" value="">
 		<br>
 		<input type="submit" value="Umfrage abschliessen">
 	</form>
