@@ -9,7 +9,7 @@ app = Flask("Psychologische Gesundheit")
 @app.route('/')
 def start():
     ueberschrifts_text = "Willkomen, hier können sie den Corona Psycho Test durchführen."
-    einleitung_text = "hier können Sie Ihre Aktivitäten tracken. Was wollen Sie tun?"
+    einleitung_text = "Die Corona Zeit verlangt nicht nur dem Körper mehr ab sondern auch dem Geist, darum wurde dieser psychologische Test entwickelt. Testen sie nun und erfahren sie, wie es ihrer Psyche geht"
     return render_template('start.html', app_name="Quiz", ueberschrift=ueberschrifts_text, einleitung=einleitung_text)
 
 
@@ -18,10 +18,11 @@ def eingabe():
 
     if request.method == 'POST':
         frage1 = request.form['frage1']
-        antwort = speichern(frage1)
+        frage2 = request.form['frage2']
+        antwort = speichern(frage1, frage2)
         return 'Gespeicherte Daten: <br>' + str(antwort)
 
-    return render_template('index.html', app_name="Tracker! - Eingabe")
+    return render_template('index.html', app_name="Quiz - Eingabe")
 
 @app.route('/about')
 def about():
