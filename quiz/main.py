@@ -19,7 +19,15 @@ def eingabe():
     if request.method == 'POST':
         frage1 = request.form['frage1']
         frage2 = request.form['frage2']
-        antwort = speichern(frage1, frage2)
+        frage3 = request.form['frage3']
+        frage4 = request.form['frage4']
+        frage5 = request.form['frage5']
+        frage6 = request.form['frage6']
+        frage7 = request.form['frage7']
+        frage8 = request.form['frage8']
+        frage9 = request.form['frage9']
+        frage10 = request.form['frage10']
+        antwort = speichern(frage1, frage2, frage3, frage4, frage5, frage6, frage7, frage8, frage9, frage10)
         return 'Gespeicherte Daten: <br>' + str(antwort)
 
     return render_template('index.html', app_name="Quiz - Eingabe")
@@ -27,7 +35,7 @@ def eingabe():
 @app.route('/about')
 def about():
     ueberschrifts_text = "Über diese Webapp"
-    einleitung_text = "Diese App wurde als Demo-App programmiert"
+    einleitung_text = "Diese App wurde im Fach Programmierung 2 an der FHGR programmiert."
     return render_template('start.html', app_name="Quiz", ueberschrift=ueberschrifts_text, einleitung=einleitung_text)
 
 
