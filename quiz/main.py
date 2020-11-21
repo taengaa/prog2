@@ -2,6 +2,8 @@ from flask import Flask
 from flask import render_template
 from flask import request
 from daten import speichern
+from daten import laden
+from berechnungen import summe_aller_antworten
 from flask import redirect
 
 app = Flask("Psychologische Gesundheit")
@@ -14,7 +16,7 @@ def start():
 
 
 @app.route('/eingabe', methods=['POST', 'GET'])
-def eingabe():
+def eingabe_formular():
 
     if request.method == 'POST':
         frage1 = request.form['frage1']
@@ -31,6 +33,15 @@ def eingabe():
         return 'Gespeicherte Daten: <br>' + str(antwort)
 
     return render_template('index.html', app_name="Quiz - Eingabe")
+
+
+@app.route('/analyse')
+def analyse():
+    gespeicherte_eintraege = laden()
+    ueberschrifts_text = "Analyse ihrer Eingaben"
+    einleitung_text = "Hier wird ihre durchschnittliche Anzahl angezeigt"
+    return render_template('start.html', app_name="Quiz", ueberschrift=ueberschrifts_text, einleitung=einleitung_text)
+
 
 @app.route('/about')
 def about():

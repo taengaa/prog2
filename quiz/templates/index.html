@@ -4,9 +4,13 @@
     	<meta charset="utf-8">
     	<title>{{ app_name }}</title>
     	<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+
+		    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap-4.5.3-dist/css/bootstrap.min.css') }}">
     </head>
     <body>
 		<h1>Mental health survey</h1>
+<!--Quellen für Fragen: https://www.testedich.ch/quiz26/quiz/1228082404/Bin-ich-depressiv -->
 
 	<form  method="POST">
 		<label for="first_question">Ich leide unter Antriebshemmungen: Ich kann mich nicht konzentrieren, fühle mich träge und/oder fühle mich nicht in der Lage, Entscheidungen zu treffen: 1 </label>
@@ -41,288 +45,288 @@
 
 		<br>
 		<label for="second_question">Ich verhalte mich meinen Mitmenschen gegenüber aggressiv und/oder gereizt: 1 </label>
-		<input type="radio" id="second_question" name="frage2" value="1">
+		<input type="radio" id="second_question" name="frage2" value="1 " required="required">
 
 		<label for="second_question">2</label>
-		<input type="radio" id="second_question" name="frage2" value="2">
+		<input type="radio" id="second_question" name="frage2" value="2" required="required">
 
 		<label for="second_question">3</label>
-		<input type="radio" id="second_question" name="frage2" value="3">
+		<input type="radio" id="second_question" name="frage2" value="3" required="required">
 
 		<label for="second_question">4</label>
-		<input type="radio" id="second_question" name="frage2" value="4">
+		<input type="radio" id="second_question" name="frage2" value="4" required="required">
 
 		<label for="second_question">5</label>
-		<input type="radio" id="second_question" name="frage2" value="5">
+		<input type="radio" id="second_question" name="frage2" value="5" required="required">
 
 		<label for="second_question">6</label>
-		<input type="radio" id="second_question" name="frage2" value="6">
+		<input type="radio" id="second_question" name="frage2" value="6" required="required">
 
 		<label for="second_question">7</label>
-		<input type="radio" id="second_question" name="frage2" value="7">
+		<input type="radio" id="second_question" name="frage2" value="7" required="required">
 
 		<label for="second_question">8</label>
-		<input type="radio" id="second_question" name="frage2" value="8">
+		<input type="radio" id="second_question" name="frage2" value="8" required="required">
 
 		<label for="second_question">9</label>
-		<input type="radio" id="second_question" name="frage2" value="9">
+		<input type="radio" id="second_question" name="frage2" value="9" required="required">
 
 		<label for="second_question">10</label>
-		<input type="radio" id="second_question" name="frage2" value="10">
+		<input type="radio" id="second_question" name="frage2" value="10" required="required">
 
 		<br>
 		<label for="third_question">Niedergeschlagenheit hat Freude, Vergnügen und Glück aus meinem Leben vertrieben: 1 </label>
-		<input type="radio" id="third_question" name="frage3" value="1">
+		<input type="radio" id="third_question" name="frage3" value="1" required="required">
 
 		<label for="third_question">2</label>
-		<input type="radio" id="third_question" name="frage3" value="2">
+		<input type="radio" id="third_question" name="frage3" value="2" required="required">
 
 		<label for="third_question">3</label>
-		<input type="radio" id="third_questionn" name="frage3" value="3">
+		<input type="radio" id="third_questionn" name="frage3" value="3" required="required">
 
 		<label for="third_question">4</label>
-		<input type="radio" id="third_question" name="frage3" value="4">
+		<input type="radio" id="third_question" name="frage3" value="4" required="required">
 
 		<label for="third_question">5</label>
-		<input type="radio" id="third_question" name="frage3" value="5">
+		<input type="radio" id="third_question" name="frage3" value="5" required="required">
 
 		<label for="third_question">6</label>
-		<input type="radio" id="third_question" name="frage3" value="6">
+		<input type="radio" id="third_question" name="frage3" value="6" required="required">
 
 		<label for="third_question">7</label>
-		<input type="radio" id="third_question" name="frage3" value="7">
+		<input type="radio" id="third_question" name="frage3" value="7" required="required">
 
 		<label for="third_question">8</label>
-		<input type="radio" id="third_question" name="frage3" value="8">
+		<input type="radio" id="third_question" name="frage3" value="8" required="required">
 
 		<label for="third_question">9</label>
-		<input type="radio" id="third_question" name="frage3" value="9">
+		<input type="radio" id="third_question" name="frage3" value="9" required="required">
 
 		<label for="third_question">10</label>
-		<input type="radio" id="third_question" name="frage3" value="10">
+		<input type="radio" id="third_question" name="frage3" value="10" required="required">
 
 		<br>
 		<label for="fourth_question">Ich leide an Schlafstörungen: Um meinen Gedanken zu entkommen schlafe ich sehr viel bzw. mein Grübeln hält mich oft stundenlang wach: 1 </label>
-		<input type="radio" id="fourth_question" name="frage4" value="1">
+		<input type="radio" id="fourth_question" name="frage4" value="1" required="required">
 
 		<label for="fourth_question">2</label>
-		<input type="radio" id="fourth_question" name="frage4" value="2">
+		<input type="radio" id="fourth_question" name="frage4" value="2" required="required">
 
 		<label for="fourth_question">3</label>
-		<input type="radio" id="fourth_question" name="frage4" value="3">
+		<input type="radio" id="fourth_question" name="frage4" value="3" required="required">
 
 		<label for="fourth_question">4</label>
-		<input type="radio" id="fourth_question" name="frage4" value="4">
+		<input type="radio" id="fourth_question" name="frage4" value="4" required="required">
 
 		<label for="fourth_question">5</label>
-		<input type="radio" id="fourth_question" name="frage4" value="5">
+		<input type="radio" id="fourth_question" name="frage4" value="5" required="required">
 
 		<label for="fourth_question">6</label>
-		<input type="radio" id="fourth_question" name="frage4" value="6">
+		<input type="radio" id="fourth_question" name="frage4" value="6" required="required">
 
 		<label for="third_question">7</label>
-		<input type="radio" id="fourth_question" name="frage4" value="7">
+		<input type="radio" id="fourth_question" name="frage4" value="7" required="required">
 
 		<label for="fourth_question">8</label>
-		<input type="radio" id="fourth_question" name="frage4" value="8">
+		<input type="radio" id="fourth_question" name="frage4" value="8" required="required">
 
 		<label for="fourth_question">9</label>
-		<input type="radio" id="fourth_question" name="frage4" value="9">
+		<input type="radio" id="fourth_question" name="frage4" value="9" required="required">
 
 		<label for="fourth_question">10</label>
-		<input type="radio" id="fourth_question" name="frage4" value="10">
+		<input type="radio" id="fourth_question" name="frage4" value="10" required="required">
 
 
 		<br>
 		<label for="fifth_question">Ich fühle mich minderwertig, nicht geliebt und überflüssig: 1 </label>
-		<input type="radio" id="fifth_question" name="frage5" value="1">
+		<input type="radio" id="fifth_question" name="frage5" value="1" required="required">
 
 		<label for="fifth_question">2</label>
-		<input type="radio" id="fifth_question" name="frage5" value="2">
+		<input type="radio" id="fifth_question" name="frage5" value="2" required="required">
 
 		<label for="fifth_question">3</label>
-		<input type="radio" id="fifth_question" name="frage5" value="3">
+		<input type="radio" id="fifth_question" name="frage5" value="3" required="required">
 
 		<label for="fifth_question">4</label>
-		<input type="radio" id="fifth_question" name="frage5" value="4">
+		<input type="radio" id="fifth_question" name="frage5" value="4" required="required">
 
 		<label for="fifth_question">5</label>
-		<input type="radio" id="fifth_question" name="frage5" value="5">
+		<input type="radio" id="fifth_question" name="frage5" value="5" required="required">
 
 		<label for="fifth_question">6</label>
-		<input type="radio" id="fifth_question" name="frage5" value="6">
+		<input type="radio" id="fifth_question" name="frage5" value="6" required="required">
 
 		<label for="fifth_question">7</label>
-		<input type="radio" id="fifth_question" name="frage5" value="7">
+		<input type="radio" id="fifth_question" name="frage5" value="7" required="required">
 
 		<label for="fifth_question">8</label>
-		<input type="radio" id="fifth_question" name="frage5" value="8">
+		<input type="radio" id="fifth_question" name="frage5" value="8" required="required">
 
 		<label for="fifth_question">9</label>
-		<input type="radio" id="fifth_question" name="frage5" value="9">
+		<input type="radio" id="fifth_question" name="frage5" value="9" required="required">
 
 		<label for="fifth_question">10</label>
-		<input type="radio" id="fifth_question" name="frage5" value="10">
+		<input type="radio" id="fifth_question" name="frage5" value="10" required="required">
 
 
 		<br>
 		<label for="sixt_question">Ich habe das Interesse und die Freude an positiven Erlebnissen oder Dingen verloren: 1 </label>
-		<input type="radio" id="sixt_question" name="frage6" value="1">
+		<input type="radio" id="sixt_question" name="frage6" value="1" required="required">
 
 		<label for="sixt_question">2</label>
-		<input type="radio" id="sixt_question" name="frage6" value="2">
+		<input type="radio" id="sixt_question" name="frage6" value="2" required="required">
 
 		<label for="sixt_question">3</label>
-		<input type="radio" id="sixt_question" name="frage6" value="3">
+		<input type="radio" id="sixt_question" name="frage6" value="3" required="required">
 
 		<label for="sixt_question">4</label>
-		<input type="radio" id="sixt_question" name="frage6" value="4">
+		<input type="radio" id="sixt_question" name="frage6" value="4" required="required">
 
 		<label for="sixt_question">5</label>
-		<input type="radio" id="sixt_question" name="frage6" value="5">
+		<input type="radio" id="sixt_question" name="frage6" value="5" required="required">
 
 		<label for="sixt_question">6</label>
-		<input type="radio" id="sixt_question" name="frage6" value="6">
+		<input type="radio" id="sixt_question" name="frage6" value="6" required="required">
 
 		<label for="sixt_question">7</label>
-		<input type="radio" id="sixt_question" name="frage6" value="7">
+		<input type="radio" id="sixt_question" name="frage6" value="7" required="required">
 
 		<label for="sixt_question">8</label>
-		<input type="radio" id="sixt_question" name="frage6" value="8">
+		<input type="radio" id="sixt_question" name="frage6" value="8" required="required">
 
 		<label for="sixt_question">9</label>
-		<input type="radio" id="sixt_question" name="frage6" value="9">
+		<input type="radio" id="sixt_question" name="frage6" value="9" required="required">
 
 		<label for="sixt_question">10</label>
-		<input type="radio" id="sixt_question" name="frage6" value="10">
+		<input type="radio" id="sixt_question" name="frage6" value="10" required="required">
 
 
 		<br>
 		<label for="seventh_question">Tiefe Verzweiflung und / oder Selbstmordgedanken bestimmen mein Leben: 1 </label>
-		<input type="radio" id="seventh_question" name="frage7" value="1">
+		<input type="radio" id="seventh_question" name="frage7" value="1" required="required">
 
 		<label for="seventh_question">2</label>
-		<input type="radio" id="seventh_question" name="frage7" value="2">
+		<input type="radio" id="seventh_question" name="frage7" value="2" required="required">
 
 		<label for="seventh_question">3</label>
-		<input type="radio" id="seventh_question" name="frage7" value="3">
+		<input type="radio" id="seventh_question" name="frage7" value="3" required="required">
 
 		<label for="seventh_question">4</label>
-		<input type="radio" id="seventh_question" name="frage7" value="4">
+		<input type="radio" id="seventh_question" name="frage7" value="4" required="required">
 
 		<label for="seventh_question">5</label>
-		<input type="radio" id="seventh_question" name="frage7" value="5">
+		<input type="radio" id="seventh_question" name="frage7" value="5" required="required">
 
 		<label for="seventh_question">6</label>
-		<input type="radio" id="seventh_question" name="frage7" value="6">
+		<input type="radio" id="seventh_question" name="frage7" value="6" required="required">
 
 		<label for="seventh_question">7</label>
-		<input type="radio" id="seventh_question" name="frage7" value="7">
+		<input type="radio" id="seventh_question" name="frage7" value="7" required="required">
 
 		<label for="seventh_question">8</label>
-		<input type="radio" id="seventh_question" name="frage7" value="8">
+		<input type="radio" id="seventh_question" name="frage7" value="8" required="required">
 
 		<label for="seventh_question">9</label>
-		<input type="radio" id="seventh_question" name="frage7" value="9">
+		<input type="radio" id="seventh_question" name="frage7" value="9" required="required">
 
 		<label for="seventh_question">10</label>
-		<input type="radio" id="seventh_question" name="frage7" value="10">
+		<input type="radio" id="seventh_question" name="frage7" value="10" required="required">
 
 
 		<br>
 		<label for="eighth_question">Ich fühle mich von meinen Gedanken eingeengt und/oder verspüre einen Grübelzwang: 1 </label>
-		<input type="radio" id="eighth_question" name="frage8" value="1">
+		<input type="radio" id="eighth_question" name="frage8" value="1" required="required">
 
 		<label for="eighth_question">2</label>
-		<input type="radio" id="eighth_question" name="frage8" value="2">
+		<input type="radio" id="eighth_question" name="frage8" value="2" required="required">
 
 		<label for="eighth_question">3</label>
-		<input type="radio" id="eighth_question" name="frage8" value="3">
+		<input type="radio" id="eighth_question" name="frage8" value="3" required="required">
 
 		<label for="eighth_question">4</label>
-		<input type="radio" id="eighth_question" name="frage8" value="4">
+		<input type="radio" id="eighth_question" name="frage8" value="4" required="required">
 
 		<label for="eighth_question">5</label>
-		<input type="radio" id="eighth_question" name="frage8" value="5">
+		<input type="radio" id="eighth_question" name="frage8" value="5" required="required">
 
 		<label for="eighth_question">6</label>
-		<input type="radio" id="eighth_question" name="frage8" value="6">
+		<input type="radio" id="eighth_question" name="frage8" value="6" required="required">
 
 		<label for="eighth_question">7</label>
-		<input type="radio" id="eighth_question" name="frage8" value="7">
+		<input type="radio" id="eighth_question" name="frage8" value="7" required="required">
 
 		<label for="eighth_question">8</label>
-		<input type="radio" id="eighth_question" name="frage8" value="8">
+		<input type="radio" id="eighth_question" name="frage8" value="8" required="required">
 
 		<label for="eighth_question">9</label>
-		<input type="radio" id="eighth_question" name="frage8" value="9">
+		<input type="radio" id="eighth_question" name="frage8" value="9" required="required">
 
 		<label for="eighth_question">10</label>
-		<input type="radio" id="eighth_questionn" name="frage8" value="10">
+		<input type="radio" id="eighth_questionn" name="frage8" value="10" required="required">
 
 
 		<br>
 		<label for="ninth_question">Ich habe aufgrund Appetitlosigkeit oder Heißhungers bereits ungewollt ab-, bzw. zugenommen: 1 </label>
-		<input type="radio" id="ninth_question" name="frage9" value="1">
+		<input type="radio" id="ninth_question" name="frage9" value="1" required="required">
 
 		<label for="ninth_question">2</label>
-		<input type="radio" id="ninth_question" name="frage9" value="2">
+		<input type="radio" id="ninth_question" name="frage9" value="2" required="required">
 
 		<label for="ninth_question">3</label>
-		<input type="radio" id="ninth_question" name="frage9" value="3">
+		<input type="radio" id="ninth_question" name="frage9" value="3" required="required">
 
 		<label for="ninth_question">4</label>
-		<input type="radio" id="ninth_question" name="frage9" value="4">
+		<input type="radio" id="ninth_question" name="frage9" value="4" required="required">
 
 		<label for="ninth_question">5</label>
-		<input type="radio" id="ninth_question" name="frage9" value="5">
+		<input type="radio" id="ninth_question" name="frage9" value="5" required="required">
 
 		<label for="ninth_question">6</label>
-		<input type="radio" id="ninth_question" name="frage9" value="6">
+		<input type="radio" id="ninth_question" name="frage9" value="6" required="required">
 
 		<label for="ninth_question">7</label>
-		<input type="radio" id="ninth_question" name="frage9" value="7">
+		<input type="radio" id="ninth_question" name="frage9" value="7" required="required">
 
 		<label for="ninth_question">8</label>
-		<input type="radio" id="ninth_question" name="frage9" value="8">
+		<input type="radio" id="ninth_question" name="frage9" value="8" required="required">
 
 		<label for="ninth_question">9</label>
-		<input type="radio" id="ninth_question" name="frage9" value="9">
+		<input type="radio" id="ninth_question" name="frage9" value="9" required="required">
 
 		<label for="ninth_question">10</label>
-		<input type="radio" id="ninth_question" name="frage9" value="10">
+		<input type="radio" id="ninth_question" name="frage9" value="10" required="required">
 
 
 		<br>
 		<label for="tenth_question">Schuldgefühle und Selbstkritik dominieren mein Denken: 1 </label>
-		<input type="radio" id="tenth_question" name="frage10" value="1">
+		<input type="radio" id="tenth_question" name="frage10" value="1" required="required">
 
 		<label for="tenth_question">2</label>
-		<input type="radio" id="tenth_question" name="frage10" value="2">
+		<input type="radio" id="tenth_question" name="frage10" value="2" required="required">
 
 		<label for="tenth_question">3</label>
-		<input type="radio" id="tenth_question" name="frage10" value="3">
+		<input type="radio" id="tenth_question" name="frage10" value="3" required="required">
 
 		<label for="tenth_question">4</label>
-		<input type="radio" id="tenth_question" name="frage10" value="4">
+		<input type="radio" id="tenth_question" name="frage10" value="4" required="required">
 
 		<label for="tenth_question">5</label>
-		<input type="radio" id="tenth_question" name="frage10" value="5">
+		<input type="radio" id="tenth_question" name="frage10" value="5" required="required">
 
 		<label for="tenth_question">6</label>
-		<input type="radio" id="tenth_question" name="frage10" value="6">
+		<input type="radio" id="tenth_question" name="frage10" value="6" required="required">
 
 		<label for="tenth_question">7</label>
-		<input type="radio" id="tenth_question" name="frage10" value="7">
+		<input type="radio" id="tenth_question" name="frage10" value="7" required="required">
 
 		<label for="tenth_question">8</label>
-		<input type="radio" id="tenth_question" name="frage10" value="8">
+		<input type="radio" id="tenth_question" name="frage10" value="8" required="required">
 
 		<label for="tenth_question">9</label>
-		<input type="radio" id="tenth_question" name="frage10" value="9">
+		<input type="radio" id="tenth_question" name="frage10" value="9" required="required">
 
 		<label for="tenth_question">10</label>
-		<input type="radio" id="tenth_question" name="frage10" value="10">
+		<input type="radio" id="tenth_question" name="frage10" value="10" required="required">
 		<br>
 		<input type="submit" value="Umfrage abschliessen">
 	</form>
