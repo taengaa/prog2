@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dropdown</title>
+</head>
+<body>
+<select name="muskelgruppe" method="GET" action="/">
+  <option value="{{muskelgruppen[0]}}" selected>{{muskelgruppen[0]}}</option>
+  {% for muskelgruppe in muskelgruppen[1:] %}
+    <option value="{{muskelgruppe}}">{{muskelgruppe}}</option>
+  {% endfor %}
+</select>
+
+</select>
+</body>
+</html>

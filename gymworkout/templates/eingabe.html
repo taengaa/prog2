@@ -1,18 +1,5 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap-4.5.3-dist/css/bootstrap.min.css') }}">
-
-    <!-- Font awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-
-      <title>{{ app_name }}</title>
-  </head>
+<!-- Mit dem include wird hier mein header hinzugefügt -->
+{% include "header.html" %}
   <body>
 
     <!-- Navbar -->
@@ -59,14 +46,14 @@
             <form method="post">
               <div class="form-group">
                 <label for="Workoutart">Workoutart</label>
-                <input type="text" class="form-control" id="Workoutart" placeholder="Was hast du trainiert?">
+                <input type="text" name="workoutart" class="form-control" id="Workoutart" placeholder="Was hast du trainiert?">
               </div>
               <div class="form-group">
                 <label for="Dauer">Dauer</label>
                 <input type="text" name="dauer" class="form-control" id="dauer" placeholder="Wie lange hat es gedauert?">
               </div>
                 <br>
-                <button type="submit">Aktivität speichern</button>
+                <button type="submit" class="btn btn-warning">Workout speichern</button>
             </form>
         </div>
     </section>
@@ -77,4 +64,3 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="{{ url_for('static', filename='bootstrap-4.5.3-dist/js/bootstrap.min.js') }}"></script>
   </body>
-</html>

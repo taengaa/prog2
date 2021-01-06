@@ -11,17 +11,26 @@ def start():
     einleitung_text = "Hier können Sie ihre Workouts tracken, was wollen Sie tun?"
     return render_template(
         'start.html',
-        app_name="Workout-Tracker!", # wird in der Suchkonsole neben dem Favicon angezeigt, im Fenster
+        app_name="Workout-Tracker!",  # wird in der Suchkonsole neben dem Favicon angezeigt, im Fenster
         ueberschrift=ueberschrifts_text,
         einleitung=einleitung_text
     )
+
+
+@app.route('/dropdown', methods=['POST', 'GET'])
+def dropdown():
+    if request.method == 'GET':
+        muskelgruppen = ['Beine', 'Arme', 'Rücken', 'Bauch']
+        return render_template('dropdown.html', muskelgruppen=muskelgruppen)
+
 
 @app.route('/eingabe', methods=['POST', 'GET'])
 def eingabe_formular():
 
     if request.method == 'POST':
         dauer = request.form['dauer']
-        antworten = dauer
+        workoutart = request.form['workoutart']
+        antworten = dauer, workoutart
         return 'Gespeicherte Daten: <br>' + str(antworten)
     ueberschrifts_text = "Eingabe der Workouts"
     einleitung_text = "Hier können Sie auswählen, welches Workout sie tracken wollen:"
