@@ -1,0 +1,32 @@
+<!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light" style="background-color:#f4f4f4;">
+        <a class="navbar-brand" href="{{ url_for('start') }}">
+            <img src="{{ url_for('static', filename='bootstrap-4.5.3-dist/Bilder/barbell.svg') }}" width="60" height="60" alt="Logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ url_for('start') }}">Start</a>
+                </li>
+
+                <li class="dropdown">
+                    <a class="nav-item nav-link dropdown-toggle" href="#" data-toggle="dropdown">Interessen</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Dropdown1</a>
+                        <a class="dropdown-item" href="#">Dropdown2</a>
+                        <a class="dropdown-item" href="#">Dropdown3</a>
+                        <a class="dropdown-item" href="#">Dropdown4</a>
+                        <a class="dropdown-item" href="#">Dropdown5</a>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('eingabe_formular') }}">Eingabe</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
