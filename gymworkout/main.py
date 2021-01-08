@@ -33,8 +33,10 @@ def eingabe_formular():
 
     if request.method == 'POST':
         dauer = request.form['dauer']
-        workoutart = request.form['workoutart']
-        antworten = speichern(workoutart, dauer)  # hier wird die Reihenfolge der gespeicherten Elemente in der
+        uebung = request.form['uebung']
+        muskelgruppe = request.form['muskelgruppe']
+        antworten = speichern(uebung, dauer, muskelgruppe)  # hier wird die Reihenfolge der gespeicherten
+        # Elemente in der
         # Datenbank definiert
         # antworten werden durch speichern in einer Liste gespeichert, darum muss diese zuerst in einen String
         # umgewandelt werden
@@ -57,7 +59,7 @@ def alle_workouts():
     einleitung_text = 'Hier werden alle deine Workouts dargestellt, die du gespeichert hast.'
     return render_template(
         'alle_workouts.html',
-        app_name="Tracker!",
+        app_name="alle_workouts",
         ueberschrift=ueberschrifts_text,
         einleitung=einleitung_text,
         daten=gespeicherten_eintraege,
@@ -67,7 +69,7 @@ def alle_workouts():
 @app.route('/analyse')
 def analyse():
     gespeicherten_eintraege = laden()
-    analyse_ergebnis = summe_der_zeitdauer(gespeicherten_eintraege)
+    analyse_ergebnis = summe_der_zeitdauer(gespeicherten_eintraege)  # Funktion wird in Berechnungen aufgeführt
     ueberschrifts_text = 'Analyse deiner Workouts'
     einleitung_text = 'Hier werden alle Workouts aufaddiert dargestellt.'
     return render_template(

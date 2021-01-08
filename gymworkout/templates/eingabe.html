@@ -17,14 +17,41 @@
             Durch Submit werden die Daten an die URL Eingabe geschickt
             Name des inputs muss unbedingt mit dem Key nach request.form übereinstimmen-->
             <form method="POST">
+              <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text">Übung</label>
+                  </div>
+                  <select  name="uebung" class="custom-select">
+                    <option selected>Welche Übung willst du machen?</option>
+                    <option>Bankdrücken</option>
+                    <option>Back Extension</option>
+                    <option>Bizeps Curls</option>
+                    <option>Klimmzüge</option>
+                    <option>Beinpresse</option>
+                    <option>Deadlift</option>
+                    <option>Velo</option>
+                    <option>Laufband</option>
+                    <option>Lattzug</option>
+                  </select>
+                </div>
               <div class="form-group">
-                <label for="Workoutart">Workoutart</label>
-                <input type="text" name="workoutart" class="form-control" id="Workoutart" placeholder="Was hast du trainiert?">
+                <label>Dauer</label>
+                <input type="text" name="dauer" class="form-control" placeholder="Wie lange hat es gedauert?">
               </div>
-              <div class="form-group">
-                <label for="Dauer">Dauer</label>
-                <input type="text" name="dauer" class="form-control" id="dauer" placeholder="Wie lange hat es gedauert?">
-              </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text">Muskelgruppe</label>
+                  </div>
+                  <select  name="muskelgruppe" class="custom-select">
+                    <option selected>Wähle die Muskelgruppe, zu welcher die Übung passt</option>
+                    <option>Arme</option>
+                    <option>Beine</option>
+                    <option>Brust</option>
+                    <option>Rücken</option>
+                    <option>Bauch</option>
+                    <option>Cardio</option>
+                  </select>
+                </div>
                 <br>
                 <button type="submit" class="btn btn-warning">Workout speichern</button>
             </form>
