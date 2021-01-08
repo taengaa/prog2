@@ -19,6 +19,7 @@ uebungen = [
         "Laufband",
         "Lattzug"
     ]
+# uebungen.append()
 
 muskelgruppen = [
         "Arme",
@@ -27,6 +28,24 @@ muskelgruppen = [
         "Rücken",
         "Bauch",
         "Cardio"
+    ]
+
+wiederholungen = [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
     ]
 
 
@@ -57,7 +76,8 @@ def eingabe_formular():
         dauer = request.form['dauer']
         uebung = request.form['uebung']
         muskelgruppe = request.form['muskelgruppe']
-        antworten = speichern(uebung, dauer, muskelgruppe)  # hier wird die Reihenfolge der gespeicherten
+        wiederholung = request.form['wiederholung']
+        antworten = speichern(uebung, dauer, muskelgruppe, wiederholung)  # hier wird die Reihenfolge der gespeicherten
         # Elemente in der
         # Datenbank definiert
         # antworten werden durch speichern in einer Liste gespeichert, darum muss diese zuerst in einen String
@@ -72,7 +92,8 @@ def eingabe_formular():
         ueberschrift=ueberschrifts_text,
         einleitung=einleitung_text,
         uebungen=uebungen,
-        muskelgruppen=muskelgruppen
+        muskelgruppen=muskelgruppen,
+        wiederholungen=wiederholungen
     )
 
 
@@ -86,7 +107,7 @@ def alle_workouts():
         app_name="alle_workouts",
         ueberschrift=ueberschrifts_text,
         einleitung=einleitung_text,
-        daten=gespeicherten_eintraege,
+        daten=gespeicherten_eintraege
     )
 
 

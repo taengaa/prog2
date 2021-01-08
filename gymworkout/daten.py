@@ -1,7 +1,7 @@
 import json
 
 
-def speichern(uebung, dauer, muskelgruppe):
+def speichern(uebung, dauer, muskelgruppe, wiederholungen):
     # hier wird versucht die Datei json im readmodus zu öffnen, mit try da die Datei leer oder nicht existieren könnte
     try:
         with open("datenbank.json", "r") as datenbank:
@@ -10,7 +10,7 @@ def speichern(uebung, dauer, muskelgruppe):
         print("Beim speichern konnte keine vorhandene Datenbank gefunden werden")
         eintraege = []
 
-    eintrag = (uebung, dauer, muskelgruppe)
+    eintrag = (uebung, dauer, muskelgruppe, wiederholungen)
 
     eintraege.append(eintrag)  # neuer Eintrag wird hinzugefügt
 
@@ -18,12 +18,12 @@ def speichern(uebung, dauer, muskelgruppe):
     json dump nimmt was entgegen und schreibt es als json Datei
     der write Modus überschreibt bereits vorhandene Einträge, dies ist aber okay da bereits vorhin abgespeichert wurden 
     inkl. neue Einträge
-    somit muss hier nicht eintrag gespeichert werden, sondern eintraege somit sind dann die alten und neuen dabei
+    somit muss hier nicht Eintrag gespeichert werden, sondern eintraege somit sind dann die Alten und Neuen dabei
     """
     with open("datenbank.json", "w") as datenbank:
         json.dump(eintraege, datenbank)
 
-    return (uebung, dauer, muskelgruppe)
+    return uebung, dauer, muskelgruppe, wiederholungen
 
 
 def laden():
