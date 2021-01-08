@@ -15,7 +15,7 @@
         <div class="container text-left">
             <!--  Formular wird bei Submit mit der Methode Post übermittelt, Standart wäre GET
             Durch Submit werden die Daten an die URL Eingabe geschickt
-            Name des inputs muss unbedingt mit dem Key nach request.form übereinstimmen-->
+            Name des inputs muss unbedingt mit dem Key nach request.form übereinstimmen -->
             <form method="POST">
               <div class="input-group mb-3">
                   <div class="input-group-prepend">
@@ -23,15 +23,9 @@
                   </div>
                   <select  name="uebung" class="custom-select">
                     <option selected>Welche Übung willst du machen?</option>
-                    <option>Bankdrücken</option>
-                    <option>Back Extension</option>
-                    <option>Bizeps Curls</option>
-                    <option>Klimmzüge</option>
-                    <option>Beinpresse</option>
-                    <option>Deadlift</option>
-                    <option>Velo</option>
-                    <option>Laufband</option>
-                    <option>Lattzug</option>
+                    {% for uebung in uebungen %} <!-- im main.py zum rendern definiert und Liste auch im main.py-->
+                        <option>{{ uebung }}</option>
+                    {% endfor %}
                   </select>
                 </div>
               <div class="form-group">
@@ -44,12 +38,9 @@
                   </div>
                   <select  name="muskelgruppe" class="custom-select">
                     <option selected>Wähle die Muskelgruppe, zu welcher die Übung passt</option>
-                    <option>Arme</option>
-                    <option>Beine</option>
-                    <option>Brust</option>
-                    <option>Rücken</option>
-                    <option>Bauch</option>
-                    <option>Cardio</option>
+                    {% for muskelgruppe in muskelgruppen %} <!-- im main.py zum rendern definiert und Liste auch im main.py -->
+                        <option>{{ muskelgruppe }}</option>
+                    {% endfor %}
                   </select>
                 </div>
                 <br>

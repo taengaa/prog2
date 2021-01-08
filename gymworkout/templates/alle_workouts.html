@@ -11,7 +11,7 @@
             <div class="container text-center">
                 <h2 class="mb-4">{{ ueberschrift }}</h2>
                 <p class="lead mb-5">{{ einleitung }}</p>
-                {% for eintrag in daten%} <!-- im main.py zum rendern definiert -->
+                {% for eintrag in daten %} <!-- im main.py zum rendern definiert -->
                     {{ eintrag[0] }} für {{ eintrag[1] }} Minuten<br />
                 {% endfor %}
             </div>

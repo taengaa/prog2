@@ -8,6 +8,28 @@ from berechnungen import summe_der_zeitdauer
 app = Flask("tracker")
 
 
+uebungen = [
+        "Bankdrücken",
+        "Back Extension",
+        "Bizeps Curls",
+        "Klimmzüge",
+        "Beinpresse",
+        "Deadlift",
+        "Velo",
+        "Laufband",
+        "Lattzug"
+    ]
+
+muskelgruppen = [
+        "Arme",
+        "Beine",
+        "Brust",
+        "Rücken",
+        "Bauch",
+        "Cardio"
+    ]
+
+
 @app.route('/')
 def start():
     ueberschrifts_text = "Willkommen auf der Workout Tracker Website"
@@ -48,7 +70,9 @@ def eingabe_formular():
         'eingabe.html',
         app_name="Workout-Tracker! / Eingabe",
         ueberschrift=ueberschrifts_text,
-        einleitung=einleitung_text
+        einleitung=einleitung_text,
+        uebungen=uebungen,
+        muskelgruppen=muskelgruppen
     )
 
 
