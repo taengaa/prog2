@@ -77,7 +77,9 @@ def eingabe_formular():
         uebung = request.form['uebung']
         muskelgruppe = request.form['muskelgruppe']
         wiederholung = request.form['wiederholung']
-        antworten = speichern(uebung, dauer, muskelgruppe, wiederholung)  # hier wird die Reihenfolge der gespeicherten
+        satz2 = request.form['satz2']
+        satz3 = request.form['satz3']
+        antworten = speichern(uebung, dauer, muskelgruppe, wiederholung, satz2, satz3)  # hier wird die Reihenfolge der gespeicherten
         # Elemente in der
         # Datenbank definiert
         # antworten werden durch speichern in einer Liste gespeichert, darum muss diese zuerst in einen String

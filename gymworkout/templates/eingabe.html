@@ -49,9 +49,33 @@
 
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <label class="input-group-text">Wiederholungen</label>
+                    <label class="input-group-text">Satz 1</label>
                   </div>
                   <select  name="wiederholung" class="custom-select">
+                    <option selected>Wähle die Anzahl Wiederholungen</option>
+                    {% for wiederholung in wiederholungen %} <!-- im main.py zum rendern definiert und Liste auch im main.py -->
+                        <option>{{ wiederholung }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text">Satz 2</label>
+                  </div>
+                  <select  name="satz2" class="custom-select">
+                    <option selected>Wähle die Anzahl Wiederholungen</option>
+                    {% for wiederholung in wiederholungen %} <!-- im main.py zum rendern definiert und Liste auch im main.py -->
+                        <option>{{ wiederholung }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text">Satz 3</label>
+                  </div>
+                  <select  name="satz3" class="custom-select">
                     <option selected>Wähle die Anzahl Wiederholungen</option>
                     {% for wiederholung in wiederholungen %} <!-- im main.py zum rendern definiert und Liste auch im main.py -->
                         <option>{{ wiederholung }}</option>

@@ -13,7 +13,8 @@
                 <p class="lead mb-5">{{ einleitung }}</p>
                 {% for eintrag in daten %} <!-- im main.py zum rendern definiert -->
                     {{ eintrag[0] }} für {{ eintrag[1] }} Minuten und {{ eintrag[3] }} Wiederholungen
-                    dieses Workout gehöhrt zur Muskelgruppe {{ eintrag[2] }}<br />
+                    dieses Workout gehöhrt zur Muskelgruppe {{ eintrag[2] }} im 1. Satz hast du {{ eintrag[3] }}
+                    Wiederholungen gemacht und im 2. Satz deutlich weniger nämlich {{ eintrag[4] }}<br />
                 {% endfor %}
             </div>
     </section>
