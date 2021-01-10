@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import render_template
 from flask import request
+from flask import redirect
 
 from daten import speichern, laden
 from berechnungen import summe_der_zeitdauer
@@ -15,19 +16,16 @@ uebungen = [
         "Klimmzüge",
         "Beinpresse",
         "Deadlift",
-        "Velo",
-        "Laufband",
         "Lattzug"
     ]
-# uebungen.append()
+# uebungen.append(input)
 
 muskelgruppen = [
         "Arme",
         "Beine",
         "Brust",
         "Rücken",
-        "Bauch",
-        "Cardio"
+        "Bauch"
     ]
 
 wiederholungen = [
@@ -62,13 +60,6 @@ def start():
     )
 
 
-@app.route('/dropdown', methods=['POST', 'GET'])
-def dropdown():
-    if request.method == 'GET':
-        muskelgruppen = ['Beine', 'Arme', 'Rücken', 'Bauch']
-        return render_template('dropdown.html', muskelgruppen=muskelgruppen)
-
-
 @app.route('/eingabe', methods=['POST', 'GET'])
 def eingabe_formular():
 
@@ -76,12 +67,12 @@ def eingabe_formular():
         dauer = request.form['dauer']
         uebung = request.form['uebung']
         muskelgruppe = request.form['muskelgruppe']
-        wiederholung = request.form['wiederholung']
+        satz1 = request.form['satz1']
         satz2 = request.form['satz2']
         satz3 = request.form['satz3']
-        antworten = speichern(uebung, dauer, muskelgruppe, wiederholung, satz2, satz3)  # hier wird die Reihenfolge der gespeicherten
-        # Elemente in der
-        # Datenbank definiert
+        antworten = speichern(uebung, dauer, muskelgruppe, satz1, satz2, satz3)
+        # hier wird die Reihenfolge der gespeicherten
+        # Elemente in der Datenbank definiert
         # antworten werden durch speichern in einer Liste gespeichert, darum muss diese zuerst in einen String
         # umgewandelt werden
         return 'Gespeicherte Daten: <br>' + str(antworten)
@@ -125,6 +116,24 @@ def analyse():
         ueberschrift=ueberschrifts_text,
         einleitung=einleitung_text,
         daten=analyse_ergebnis
+    )
+
+
+@app.route('/neue_uebung', methods=['POST', 'GET'])
+def neue_uebung():
+    if request.method == 'POST':
+        neue_uebung = str(request.form['neue_uebung'])
+        uebungen = uebungen.append(neue_uebung)
+        return
+
+    ueberschrifts_text = 'Neue Übung zur Auswahl hinzufügen'
+    einleitung_text = 'Hier kannst du eine neue Übung zur Auswahl im Dropdown hinzufügen.'
+    return render_template(
+        'neue_uebung.html',
+        app_name="neue_uebung",
+        ueberschrift=ueberschrifts_text,
+        einleitung=einleitung_text,
+        uebungen=uebungen
     )
 
 

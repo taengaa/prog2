@@ -1,0 +1,28 @@
+<!-- Mit dem include wird hier mein Headbereich hinzugefügt -->
+{% include "header.html" %}
+  <body>
+
+  <!-- Mit dem include wird hier meine Navbar hinzugefügt -->
+{% include "navbar.html" %}
+
+   <br /><br />
+
+<section class="py-5">
+
+      <div class="container text-center">
+            <h2 class="mb-4">{{ ueberschrift }}</h2>
+            <p class="lead mb-5">{{ einleitung }}</p>
+
+          <form class="container text-left" method="POST">
+                  <div class="form-group">
+                    <label>Name der Übung</label>
+                    <input type="text" name="dauer" class="form-control" placeholder="Name der Übung eingeben">
+                  </div>
+                  <button type="submit" class="btn btn-warning">Neue Übung hinzufügen</button>
+          </form>
+      </div>
+</section>
+
+  <!-- Mit dem include werden hier meine Bootsrap footer Links hinzugefügt -->
+{% include "footer.html" %}
+  </body>
