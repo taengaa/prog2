@@ -11,8 +11,10 @@
             <div class="container text-center">
                 <h2 class="mb-4">{{ ueberschrift }}</h2>
                 <p class="lead mb-5">{{ einleitung }}</p>
-
-                    <table class="table table-hover table-dark">
+                <a href="{{ url_for('alle_workouts') }}" class="btn btn-warning" role="button">Alle erfassten Workouts</a>
+                <br/><br />
+                
+                <table class="table table-hover table-dark">
                       <thead>
                         <tr>
                           <th scope="col">Übung</th>
@@ -26,13 +28,7 @@
                       <tbody>
                       {% for eintrag in daten %} <!-- im main.py zum rendern definiert -->
                         <tr>
-                          <td>{{ eintrag[0] }}</td>
-                          <td>{{ eintrag[1] }}</td>
-                          <td>{{ eintrag[2] }}</td>
-                          <td>{{ eintrag[3] }}</td>
-                          <td>{{ eintrag[4] }}</td>
-                          <td>{{ eintrag[5] }}</td>
-                          <td>{{ eintrag[6] }}</td>
+                          <td>{{ eintrag[-1:] }}</td>
                         </tr>
                       {% endfor %}
                       </tbody>

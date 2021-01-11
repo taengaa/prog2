@@ -9,7 +9,7 @@ from berechnungen import summe_der_zeitdauer
 app = Flask("tracker")
 
 
-uebungen = [
+liste_uebungen = [
         "Bankdrücken",
         "Back Extension",
         "Bizeps Curls",
@@ -18,6 +18,7 @@ uebungen = [
         "Deadlift",
         "Lattzug"
     ]
+
 # uebungen.append(input)
 
 muskelgruppen = [
@@ -64,8 +65,8 @@ def start():
 def eingabe_formular():
 
     if request.method == 'POST':
-        dauer = request.form['dauer']
         uebung = request.form['uebung']
+        dauer = request.form['dauer']
         muskelgruppe = request.form['muskelgruppe']
         satz1 = request.form['satz1']
         satz2 = request.form['satz2']
@@ -84,7 +85,7 @@ def eingabe_formular():
         app_name="Workout-Tracker! / Eingabe",
         ueberschrift=ueberschrifts_text,
         einleitung=einleitung_text,
-        uebungen=uebungen,
+        uebungen=liste_uebungen,
         muskelgruppen=muskelgruppen,
         wiederholungen=wiederholungen
     )
@@ -121,19 +122,35 @@ def analyse():
 
 @app.route('/neue_uebung', methods=['POST', 'GET'])
 def neue_uebung():
+
     if request.method == 'POST':
-        neue_uebung = str(request.form['neue_uebung'])
-        uebungen = uebungen.append(neue_uebung)
-        return
+        neue_uebung = request.form['neue_uebung']
+        neue_liste_uebungen = liste_uebungen.append(neue_uebung)
+        return neue_liste_uebungen
 
     ueberschrifts_text = 'Neue Übung zur Auswahl hinzufügen'
     einleitung_text = 'Hier kannst du eine neue Übung zur Auswahl im Dropdown hinzufügen.'
+
     return render_template(
         'neue_uebung.html',
         app_name="neue_uebung",
         ueberschrift=ueberschrifts_text,
         einleitung=einleitung_text,
-        uebungen=uebungen
+        uebungen=liste_uebungen
+    )
+
+
+@app.route('/gespeichertes_workout', methods=['POST', 'GET'])
+def gespeichertes_workout():
+    gespeicherten_eintraege = laden()  # Funktion in daten.py definiert
+    ueberschrifts_text = 'Dein Workout'
+    einleitung_text = 'Hier wird dein Workout dargestellt: Mit einem Klick auf den Button kannst du alle Workouts anzeigen'
+    return render_template(
+        'gespeichertes_workout.html',
+        app_name="Dein Workout",
+        ueberschrift=ueberschrifts_text,
+        einleitung=einleitung_text,
+        daten=gespeicherten_eintraege
     )
 
 
