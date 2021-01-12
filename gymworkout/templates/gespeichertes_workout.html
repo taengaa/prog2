@@ -26,11 +26,16 @@
                         </tr>
                       </thead>
                       <tbody>
-                      {% for eintrag in daten %} <!-- im main.py zum rendern definiert -->
                         <tr>
-                          <td>{{ eintrag[-1:] }}</td>
+                          <td>{{ daten[-1][0] }}</td>
+                          <td>{{ daten[-1][1] }}</td>
+                          <td>{{ daten[-1][2] }}</td>
+                          <td>{{ daten[-1][3] }}</td>
+                          <td>{{ daten[-1][4] }}</td>
+                          <td>{{ daten[-1][5] }}</td>
+                          <td>{{ daten[-1][6] }}</td>
+
                         </tr>
-                      {% endfor %}
                       </tbody>
                     </table>
             </div>

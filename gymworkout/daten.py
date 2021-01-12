@@ -35,3 +35,30 @@ def laden():
         eintraege = []
 
     return eintraege
+
+
+def liste_uebungen_json():
+    # hier wird versucht die Datei json im readmodus zu öffnen, mit try da die Datei leer oder nicht existieren könnte
+    try:
+        with open("liste_uebungen.json", "r") as liste_uebungen:
+            eintraege = json.load(liste_uebungen)
+    except:
+        print("Beim speichern konnte keine vorhandene Liste gefunden werden")
+        eintraege = []
+
+    eintrag = ("Bankdrücken", "Back Extension", "Bizeps Curls", "Klimmzüge", "Beinpresse", "Deadlift", "Lattzug")
+
+    eintraege.append(eintrag)  # neuer Eintrag wird hinzugefügt
+
+
+def liste_uebungen_json_laden():
+    try:
+        with open("liste_uebungen.json", "r") as liste_uebungen:
+            eintraege = json.load(liste_uebungen)
+    except:
+        print("Beim laden konnte keine vorhandene Datenbank gefunden werden")
+        eintraege = []
+
+    return eintraege
+
+

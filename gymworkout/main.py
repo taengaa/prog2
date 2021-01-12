@@ -3,11 +3,10 @@ from flask import render_template
 from flask import request
 from flask import redirect
 
-from daten import speichern, laden
+from daten import speichern, laden, liste_uebungen_json, liste_uebungen_json_laden
 from berechnungen import summe_der_zeitdauer
 
 app = Flask("tracker")
-
 
 liste_uebungen = [
         "Bankdrücken",
@@ -18,8 +17,8 @@ liste_uebungen = [
         "Deadlift",
         "Lattzug"
     ]
-
 # uebungen.append(input)
+
 
 muskelgruppen = [
         "Arme",
@@ -125,6 +124,7 @@ def neue_uebung():
 
     if request.method == 'POST':
         neue_uebung = request.form['neue_uebung']
+        eigabe=liste_uebungen_json(neue_uebung)
         neue_liste_uebungen = liste_uebungen.append(neue_uebung)
         return neue_liste_uebungen
 
@@ -144,7 +144,7 @@ def neue_uebung():
 def gespeichertes_workout():
     gespeicherten_eintraege = laden()  # Funktion in daten.py definiert
     ueberschrifts_text = 'Dein Workout'
-    einleitung_text = 'Hier wird dein Workout dargestellt: Mit einem Klick auf den Button kannst du alle Workouts anzeigen'
+    einleitung_text = 'Hier wird dein hinzugefügtes Workout dargestellt: Mit einem Klick auf den Button kannst du alle Workouts anzeigen'
     return render_template(
         'gespeichertes_workout.html',
         app_name="Dein Workout",
