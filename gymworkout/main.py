@@ -1,50 +1,18 @@
 from flask import Flask
 from flask import render_template
 from flask import request
-from flask import redirect
+from flask import redirect, url_for
 
-from daten import speichern, laden, liste_uebungen_json, liste_uebungen_json_laden
+from daten import speichern, laden, liste_uebungen_json, liste_laden
 from berechnungen import summe_der_zeitdauer
 
 app = Flask("tracker")
 
-liste_uebungen = [
-        "Bankdrücken",
-        "Back Extension",
-        "Bizeps Curls",
-        "Klimmzüge",
-        "Beinpresse",
-        "Deadlift",
-        "Lattzug"
-    ]
-# uebungen.append(input)
+liste_uebungen = liste_laden("liste_uebungen.json")
 
+muskelgruppen = liste_laden("muskelgruppen.json")
 
-muskelgruppen = [
-        "Arme",
-        "Beine",
-        "Brust",
-        "Rücken",
-        "Bauch"
-    ]
-
-wiederholungen = [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "12",
-        "13",
-        "14",
-        "15"
-    ]
+wiederholungen = liste_laden("wiederholungen.json")
 
 
 @app.route('/')
@@ -70,15 +38,18 @@ def eingabe_formular():
         satz1 = request.form['satz1']
         satz2 = request.form['satz2']
         satz3 = request.form['satz3']
-        antworten = speichern(uebung, dauer, muskelgruppe, satz1, satz2, satz3)
+        speichern(uebung, dauer, muskelgruppe, satz1, satz2, satz3)
+        return redirect(url_for("gespeichertes_workout"))
         # hier wird die Reihenfolge der gespeicherten
         # Elemente in der Datenbank definiert
-        # antworten werden durch speichern in einer Liste gespeichert, darum muss diese zuerst in einen String
-        # umgewandelt werden
-        return 'Gespeicherte Daten: <br>' + str(antworten)
-    ueberschrifts_text = "Eingabe der Workouts"
-    einleitung_text = "Hier können Sie auswählen, welches Workout sie tracken wollen:"
+        # antworten werden durch speichern in einer Liste gespeichert
 
+    ueberschrifts_text = "Eingabe der Workouts"
+    einleitung_text = "Hier können Sie auswählen, welches Übung sie tracken wollen oder eine neue hinzufügen:"
+
+    liste_uebungen = liste_laden("liste_uebungen.json")
+    muskelgruppen = liste_laden("muskelgruppen.json")
+    wiederholungen = liste_laden("wiederholungen.json")
     return render_template(
         'eingabe.html',
         app_name="Workout-Tracker! / Eingabe",
@@ -124,9 +95,8 @@ def neue_uebung():
 
     if request.method == 'POST':
         neue_uebung = request.form['neue_uebung']
-        eigabe=liste_uebungen_json(neue_uebung)
-        neue_liste_uebungen = liste_uebungen.append(neue_uebung)
-        return neue_liste_uebungen
+        liste_uebungen_json(neue_uebung)
+        return redirect(url_for("eingabe_formular"))
 
     ueberschrifts_text = 'Neue Übung zur Auswahl hinzufügen'
     einleitung_text = 'Hier kannst du eine neue Übung zur Auswahl im Dropdown hinzufügen.'
