@@ -4,15 +4,11 @@ from flask import request
 from flask import redirect, url_for
 
 from daten import speichern, laden, liste_uebungen_json, liste_laden
-from berechnungen import summe_der_zeitdauer
+from berechnungen import summe_der_workouts
 
 app = Flask("tracker")
 
-liste_uebungen = liste_laden("liste_uebungen.json")
 
-muskelgruppen = liste_laden("muskelgruppen.json")
-
-wiederholungen = liste_laden("wiederholungen.json")
 
 
 @app.route('/')
@@ -78,7 +74,7 @@ def alle_workouts():
 @app.route('/analyse')
 def analyse():
     gespeicherten_eintraege = laden()
-    analyse_ergebnis = summe_der_zeitdauer(gespeicherten_eintraege)  # Funktion wird in Berechnungen aufgeführt
+    analyse_ergebnis = summe_der_workouts(gespeicherten_eintraege)  # Funktion wird in Berechnungen aufgeführt
     ueberschrifts_text = 'Analyse deiner Workouts'
     einleitung_text = 'Hier werden alle Workouts aufaddiert dargestellt.'
     return render_template(
@@ -100,6 +96,7 @@ def neue_uebung():
 
     ueberschrifts_text = 'Neue Übung zur Auswahl hinzufügen'
     einleitung_text = 'Hier kannst du eine neue Übung zur Auswahl im Dropdown hinzufügen.'
+    liste_uebungen = liste_laden("liste_uebungen.json")
 
     return render_template(
         'neue_uebung.html',

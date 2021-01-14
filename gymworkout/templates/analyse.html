@@ -12,9 +12,31 @@
             <div class="container text-center">
                 <h2 class="mb-4">{{ ueberschrift }}</h2>
                 <p class="lead mb-5">{{ einleitung }}</p>
-                    {% for muskelgruppe, zeit in daten.items() %}
-                        {{ muskelgruppe }} für {{ zeit }} Minuten<br>
-                    {% endfor %}
+                <table class="table table-hover table-dark">
+                      <thead>
+                        <tr>
+                          <th scope="col">Übung</th>
+                          <th scope="col">Dauer</th>
+                          <th scope="col">Muskelgruppe</th>
+                          <th scope="col">Satz 1 (Wiederholungen)</th>
+                          <th scope="col">Satz 2 (Wiederholungen)</th>
+                          <th scope="col">Satz 3 (Wiederholungen)</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {% for eintrag in daten %} <!-- im main.py zum rendern definiert -->
+                        <tr>
+                          <td>{{ eintrag[0] }}</td>
+                          <td>{{ eintrag[1] }}</td>
+                          <td>{{ eintrag }}</td>
+                          <td>{{ eintrag }}</td>
+                          <td>{{ eintrag }}</td>
+                          <td>{{ eintrag }}</td>
+                          <td>{{ eintrag }}</td>
+                        </tr>
+                      {% endfor %}
+                      </tbody>
+                </table>
             </div>
     </section>
 
