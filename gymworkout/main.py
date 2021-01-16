@@ -3,7 +3,7 @@ from flask import render_template
 from flask import request
 from flask import redirect, url_for
 
-from daten import speichern, laden, liste_uebungen_json, liste_laden
+from daten import speichern, laden, liste_uebungen_json, liste_laden, liste_gewichte_json
 from berechnungen import summe_der_workouts
 
 app = Flask("tracker")
@@ -31,10 +31,11 @@ def eingabe_formular():
         uebung = request.form['uebung']
         dauer = request.form['dauer']
         muskelgruppe = request.form['muskelgruppe']
+        gewicht = request.form['gewicht']
         satz1 = request.form['satz1']
         satz2 = request.form['satz2']
         satz3 = request.form['satz3']
-        speichern(uebung, dauer, muskelgruppe, satz1, satz2, satz3)
+        speichern(uebung, dauer, muskelgruppe,gewicht, satz1, satz2, satz3)
         return redirect(url_for("gespeichertes_workout"))
         # hier wird die Reihenfolge der gespeicherten
         # Elemente in der Datenbank definiert
@@ -45,6 +46,7 @@ def eingabe_formular():
 
     liste_uebungen = liste_laden("liste_uebungen.json")
     muskelgruppen = liste_laden("muskelgruppen.json")
+    gewichte = liste_laden("gewichte.json")
     wiederholungen = liste_laden("wiederholungen.json")
     return render_template(
         'eingabe.html',
@@ -53,6 +55,7 @@ def eingabe_formular():
         einleitung=einleitung_text,
         uebungen=liste_uebungen,
         muskelgruppen=muskelgruppen,
+        gewichte=gewichte,
         wiederholungen=wiederholungen
     )
 
@@ -104,6 +107,27 @@ def neue_uebung():
         ueberschrift=ueberschrifts_text,
         einleitung=einleitung_text,
         uebungen=liste_uebungen
+    )
+
+
+@app.route('/neues_gewicht', methods=['POST', 'GET'])
+def neues_gewicht():
+
+    if request.method == 'POST':
+        neues_gewicht = request.form['neues_gewicht']
+        liste_gewichte_json(neues_gewicht)
+        return redirect(url_for("eingabe_formular"))
+
+    ueberschrifts_text = 'Neues Gewicht zur Auswahl hinzufügen'
+    einleitung_text = 'Hier kannst du ein neues Gewicht zur Auswahl im Dropdown hinzufügen.'
+    gewichte = liste_laden("gewichte.json")
+
+    return render_template(
+        'neues_gewicht.html',
+        app_name="neue_uebung",
+        ueberschrift=ueberschrifts_text,
+        einleitung=einleitung_text,
+        gewichte=gewichte
     )
 
 

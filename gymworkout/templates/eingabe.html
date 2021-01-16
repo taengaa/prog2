@@ -33,7 +33,7 @@
 
               <div class="form-group">
                 <label>Dauer</label>
-                <input type="number" name="dauer" class="form-control" placeholder="Wie lange hat es gedauert?">
+                <input type="number" name="dauer" class="form-control" placeholder="Wie lange hat es gedauert(in Minuten)?">
               </div>
 
                 <div class="input-group mb-3">
@@ -46,6 +46,19 @@
                         <option>{{ muskelgruppe }}</option>
                     {% endfor %}
                   </select>
+                </div>
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text">Gewicht</label>
+                  </div>
+                  <select  name="gewicht" class="custom-select">
+                    <option selected>Wähle das Gewicht in kg</option>
+                    {% for gewicht in gewichte %} <!-- im main.py zum rendern definiert und Liste auch im main.py -->
+                        <option>{{ gewicht }}</option>
+                    {% endfor %}
+                  </select>
+                  <a href="{{ url_for('neues_gewicht') }}" class="btn btn-warning" role="button">Anderes Gewicht hinzufügen</a>
                 </div>
 
                 <div class="input-group mb-3">

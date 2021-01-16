@@ -1,7 +1,7 @@
 import json
 
 
-def speichern(uebung, dauer, muskelgruppe, satz1, satz2, satz3):
+def speichern(uebung, dauer, muskelgruppe, gewicht, satz1, satz2, satz3):
     # hier wird versucht die Datei json im readmodus zu öffnen, mit try da die Datei leer oder nicht existieren könnte
     try:
         with open("datenbank.json", "r") as datenbank:
@@ -10,7 +10,7 @@ def speichern(uebung, dauer, muskelgruppe, satz1, satz2, satz3):
         print("Beim speichern konnte keine vorhandene Datenbank gefunden werden")
         eintraege = []
 
-    eintrag = (uebung, dauer, muskelgruppe, satz1, satz2, satz3)
+    eintrag = (uebung, dauer, muskelgruppe, gewicht, satz1, satz2, satz3)
 
     eintraege.append(eintrag)  # neuer Eintrag wird hinzugefügt
 
@@ -23,7 +23,7 @@ def speichern(uebung, dauer, muskelgruppe, satz1, satz2, satz3):
     with open("datenbank.json", "w") as datenbank:
         json.dump(eintraege, datenbank)
 
-    return uebung, dauer, muskelgruppe, satz1, satz2, satz3
+    return uebung, dauer, muskelgruppe, gewicht, satz1, satz2, satz3
 
 
 def laden():
@@ -62,4 +62,16 @@ def liste_laden(datenbankdatei):
 
     return eintraege
 
+def liste_gewichte_json(neues_gewicht):
+    # hier wird versucht die Datei json im readmodus zu öffnen, mit try da die Datei leer oder nicht existieren könnte
+    try:
+        with open("gewichte.json", "r", encoding="utf-8") as liste_gewichte:
+            eintraege = json.load(liste_gewichte)
+    except:
+        print("Beim speichern konnte keine vorhandene Liste gefunden werden")
+        eintraege = []
 
+    eintraege.append(neues_gewicht)  # neuer Eintrag wird hinzugefügt
+
+    with open("gewichte.json", "w",  encoding="utf-8") as liste_gewichte:
+        json.dump(eintraege, liste_gewichte)
