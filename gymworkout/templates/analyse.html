@@ -12,21 +12,39 @@
             <div class="container text-center">
                 <h2 class="mb-4">{{ ueberschrift }}</h2>
                 <p class="lead mb-5">{{ einleitung }}</p>
+
                 <table class="table table-hover table-dark">
                       <thead>
                         <tr>
                           <th scope="col">Übung</th>
-                          <th scope="col">Gesamtzeit(Minuten) einer Übung</th>
+                          <th scope="col">Gesamtzeit (Minuten)</th>
                         </tr>
                       </thead>
                       <tbody>
-                      {% for uebung, durchschnittszeit in daten.items() %} <!-- im main.py zum rendern definiert -->
+                      {% for uebung, gesamtzeit in daten.items() %} <!-- im main.py zum rendern definiert -->
                         <tr>
                           <td>{{ uebung }}</td>
-                          <td>{{ durchschnittszeit }}</td>
+                          <td>{{ gesamtzeit }}</td>
                         </tr>
                       {% endfor %}
-                      </tbody>
+                </table>
+
+
+                <table class="table table-hover table-dark">
+                  <thead>
+                    <tr>
+                      <th scope="col">Übung</th>
+                      <th scope="col">Gesamtgewicht (kg)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {% for uebung, gesamtgewicht in summe_gewichte.items() %} <!-- im main.py zum rendern definiert -->
+                    <tr>
+                      <td>{{ uebung }}</td>
+                      <td>{{ gesamtgewicht }}</td>
+                    </tr>
+                  {% endfor %}
+                  </tbody>
                 </table>
             </div>
     </section>

@@ -4,7 +4,7 @@ from flask import request
 from flask import redirect, url_for
 
 from daten import speichern, laden, liste_uebungen_json, liste_laden, liste_gewichte_json
-from berechnungen import summe_der_workouts
+from berechnungen import summe_der_workouts, gesamtgewicht_pro_muskelgruppe
 
 app = Flask("tracker")
 
@@ -78,6 +78,7 @@ def alle_workouts():
 def analyse():
     gespeicherten_eintraege = laden()
     analyse_ergebnis = summe_der_workouts(gespeicherten_eintraege)  # Funktion wird in Berechnungen aufgeführt
+    summe_gewichte = gesamtgewicht_pro_muskelgruppe(gespeicherten_eintraege)
     ueberschrifts_text = 'Analyse deiner Workouts'
     einleitung_text = 'Hier werden alle Workouts aufaddiert dargestellt.'
     return render_template(
@@ -85,7 +86,8 @@ def analyse():
         app_name="Tracker!",
         ueberschrift=ueberschrifts_text,
         einleitung=einleitung_text,
-        daten=analyse_ergebnis
+        daten=analyse_ergebnis,
+        summe_gewichte=summe_gewichte
     )
 
 
