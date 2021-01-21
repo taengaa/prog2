@@ -9,21 +9,22 @@ from berechnungen import summe_der_workouts, gesamtgewicht_pro_muskelgruppe
 app = Flask("tracker")
 
 
-
-
+# Dies ist die Startseite, hier können die 3 Buttons ausgewählt werden.
 @app.route('/')
 def start():
     ueberschrifts_text = "Willkommen auf der Workout Tracker Website"
     einleitung_text = "Hier können Sie ihre Workouts tracken, was wollen Sie tun?"
-    # der Überschrift und Einleitungstext wird in der Start html Datei gerendert
+    # Der Überschrift und Einleitungstext wird in der Start html Datei gerendert.
     return render_template(
         'start.html',
-        app_name="Workout-Tracker!",  # wird in der Suchkonsole neben dem Favicon angezeigt, im Fenster
+        app_name="Workout-Tracker!",  # Wird in der Suchkonsole neben dem Favicon angezeigt, im Fenster
+        # da der app_name als Titel definiert wurde im header.html <title>{{ app_name }}</title>
         ueberschrift=ueberschrifts_text,
         einleitung=einleitung_text
     )
 
 
+# Eingabeseite, auf welcher Dauer, workout etc. ausgewählt werden kann.
 @app.route('/eingabe', methods=['POST', 'GET'])
 def eingabe_formular():
 
@@ -35,17 +36,17 @@ def eingabe_formular():
         satz1 = request.form['satz1']
         satz2 = request.form['satz2']
         satz3 = request.form['satz3']
-        speichern(uebung, dauer, muskelgruppe,gewicht, satz1, satz2, satz3)
+        speichern(uebung, dauer, muskelgruppe, gewicht, satz1, satz2, satz3)  # Speichern in daten.py definiert
         return redirect(url_for("gespeichertes_workout"))
-        # hier wird die Reihenfolge der gespeicherten
+        # Hier wird die Reihenfolge der gespeicherten
         # Elemente in der Datenbank definiert
-        # antworten werden durch speichern in einer Liste gespeichert
+        # Antworten werden durch speichern in einer Liste gespeichert
 
     ueberschrifts_text = "Eingabe der Workouts"
     einleitung_text = "Hier können Sie auswählen, welches Übung sie tracken wollen oder eine neue hinzufügen:"
 
-    liste_uebungen = liste_laden("liste_uebungen.json")
-    muskelgruppen = liste_laden("muskelgruppen.json")
+    liste_uebungen = liste_laden("liste_uebungen.json")  # Können beide mit der gleichen Funktion geladen werden,
+    muskelgruppen = liste_laden("muskelgruppen.json")    # da die Funktion in daten.py mit datenbankdatei dynamisch ist.
     gewichte = liste_laden("gewichte.json")
     wiederholungen = liste_laden("wiederholungen.json")
     return render_template(
@@ -60,7 +61,7 @@ def eingabe_formular():
     )
 
 
-@app.route('/alle_workouts')
+@app.route('/alle_workouts/')
 def alle_workouts():
     gespeicherten_eintraege = laden()  # Funktion in daten.py definiert
     ueberschrifts_text = 'Liste von allen Workouts'
@@ -76,9 +77,9 @@ def alle_workouts():
 
 @app.route('/analyse')
 def analyse():
-    gespeicherten_eintraege = laden()
-    analyse_ergebnis = summe_der_workouts(gespeicherten_eintraege)  # Funktion wird in Berechnungen aufgeführt
-    summe_gewichte = gesamtgewicht_pro_muskelgruppe(gespeicherten_eintraege)
+    gespeicherten_eintraege = laden()  # wird in daten.py definiert
+    analyse_ergebnis = summe_der_workouts(gespeicherten_eintraege)  # Funktion wird in berechnungen.py definiert
+    summe_gewichte = gesamtgewicht_pro_muskelgruppe(gespeicherten_eintraege)  # Funktion wird in berechnungen.py definiert
     ueberschrifts_text = 'Analyse deiner Workouts'
     einleitung_text = 'Hier werden alle Workouts aufaddiert dargestellt.'
     return render_template(
