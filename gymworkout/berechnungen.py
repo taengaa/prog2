@@ -32,4 +32,3 @@ def gesamtgewicht_pro_muskelgruppe(gespeicherten_eintraege):
     gesamtgewicht["Gesamtgewicht aller Workouts"] = summe_gesamtgewicht
 
     return gesamtgewicht
-
