@@ -21,7 +21,7 @@ def summe_der_workouts(gespeicherten_eintraege):
     anzahl_zeiten_in_dict = len(gespeicherten_eintraege)
     durchschnittszeit = summe_zeit/anzahl_zeiten_in_dict
     workout_dictionary["Durchschnittszeit/Workout"] = durchschnittszeit
-    
+
 
     return workout_dictionary
 
