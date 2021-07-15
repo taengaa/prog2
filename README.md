@@ -14,7 +14,8 @@ Vor allem diese Probleme ergeben sich:
 ##### Einer der ersten Entwürfe, darum stimmt es nicht zu 100% mit dem jetzigen Projekt überein.
 ## Probleme und Bedingungen
 1. Bei der Eingabe der Workouts muss für jedes Feld eine Antwort gewählt oder bei der Dauer eingegeben werden, ansonsten 
-wird der Platzhaltertext(selected) von eingabe.html gespeichert. 
+wird der Platzhaltertext(selected) von eingabe.html gespeichert. Dies führt dann zum Problem, dass ein leerer string nicht
+in ein float bei der Analyse umgewandelt werden kann. Somit erscheint dann eine Fehlermeldung wenn auf Analyse geklickt wird.
 2. Wird eine neue Übung oder ein neues Gewicht über die jeweiligen Buttons zum Dropdown hinzugefügt, werden die Einträge,
 welche für dieses Workout bereits gemacht wurden gelöscht, da die Seite neu geladen werden muss.
 3. Für die Dauer sind zwingend nur Zahlen zugelassen. Es können auch nur Zahlen eingegeben werden.
@@ -28,7 +29,7 @@ Jinja2==2.11.2
 MarkupSafe==1.1.1
 Werkzeug==1.0.1
 Nach der Installation von Flask,
-kann das Projekt mit flask run gestartet werden. Dieses ist danach im Debug Modus lokal unter: http://127.0.0.1:5000/ verfügbar.
+kann das Projekt mit <tt>flask run</tt> gestartet werden. Dieses ist danach im Debug Modus lokal unter: http://127.0.0.1:5000/ verfügbar.
 ## Walkthrough
 1. Auf der Startseite kann man zwischen Workouts erfassen, alle Workouts und Analyse der Workouts auswählen. Benutzt man 
 die App zum ersten Mal erfasst man am besten ein neues Workout. 
